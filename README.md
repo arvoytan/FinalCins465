@@ -1,0 +1,12 @@
+completed,
+Say "Hello, World!" With Python,
+Python If-Else,
+Arithmetic Operators,
+Python: Division,
+Loops,
+Write a Function,
+Print Function,
+List Comprehensions,
+Find the Runner-Up Score!,
+sWAP cASE,
+What's Your Name?

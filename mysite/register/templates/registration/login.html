@@ -1,0 +1,15 @@
+<html>
+<head>
+    
+    <title>Login page</title>
+    {% load crispy_forms_tags %}
+</head>
+<body>
+        <form method="post" class="from-group">
+        {% csrf_token %}
+        {{form|crispy}}
+        <p>Create an account <a href="/register">here</a></p>
+        <button type="submit" class="btn btn-success">Login</button>	
+        </form>
+</body>
+</html>
