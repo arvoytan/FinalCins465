@@ -2,10 +2,28 @@
 version: '3'
 
 services:
-  web:
-    build: .
-    volumes:
-       - .:/code
-    ports:
-       - 8000:8000
-    command: python /code/mysite/manage.py runserver 0.0.0.0:8000
+        web:
+                build: .
+                volumes:
+                        - .:/code
+                links:
+                        - redis:redis
+                expose:
+                        - 8000
+                user: "1001:1002"
+                command: python3 /code/mysite/manage.py runserver 0.0.0.0:8000
+
+                redis:
+                        image: redis
+                        expose:
+                                - 6379
+
+                nginx:
+                        restart: always
+                        build: ./nginx/
+                        depends_on:
+                                - web
+                        ports:
+                                - 80:80
+                        links:
+                                - web:web
